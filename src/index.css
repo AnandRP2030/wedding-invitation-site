@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Custom Floating Petals / Sparks */
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, -30px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(var(--drift, 50px), 105vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #B45309 0%, #F59E0B 25%, #FDE68A 50%, #F59E0B 75%, #B45309 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerEffect 4s linear infinite;
+}
+
+.luxury-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 16px 36px -10px rgba(15, 61, 46, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.luxury-card-dark {
+  background: rgba(15, 36, 28, 0.82);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35);
+}
+
+/* Perspective for 3D card unfold */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Leaflet Map overrides */
+.leaflet-popup-content-wrapper {
+  background: #FAF8F5 !important;
+  color: #1E242B !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15) !important;
+  padding: 4px !important;
+}
+.leaflet-popup-tip {
+  background: #FAF8F5 !important;
+}
+
